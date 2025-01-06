@@ -6,11 +6,6 @@
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -33,7 +28,7 @@
 				"inputs": [
 					{
 						"internalType": "string",
-						"name": "tweet",
+						"name": "_tweet",
 						"type": "string"
 					}
 				],
@@ -53,9 +48,31 @@
 				"name": "getAllTwetts",
 				"outputs": [
 					{
-						"internalType": "string[]",
+						"components": [
+							{
+								"internalType": "address",
+								"name": "author",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "content",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "TimeStamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "likes",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Twitter.Tweet[]",
 						"name": "",
-						"type": "string[]"
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -77,9 +94,31 @@
 				"name": "getTweet",
 				"outputs": [
 					{
-						"internalType": "string",
+						"components": [
+							{
+								"internalType": "address",
+								"name": "author",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "content",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "TimeStamp",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "likes",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Twitter.Tweet",
 						"name": "",
-						"type": "string"
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -114,11 +153,11 @@
 	},
 	"sources": {
 		"twitterCopy.sol": {
-			"keccak256": "0x4f821779581516bc82e33cf3e7ac3c014c2058f3212914591d8c8a25ac7f6448",
+			"keccak256": "0x92aa800522a67dd8def378f0a9f3f763ca52c508e64ed379ba7013807244d1d9",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://fb33a95b7ff91bf6a07106efd583ef68d721412534d93910463729493b0e7147",
-				"dweb:/ipfs/QmTqiCnLepZ2CJkbDdgTTSWZju36oFp994YWrdgovME3hX"
+				"bzz-raw://96b93a51a68fb9cbe06acc2d95df45677b8cbcea3d6176b67dd0d93062d53076",
+				"dweb:/ipfs/QmT61EUTRB8ZWhd5vqrCXskV11AW99jdmQxgn5474n3gJf"
 			]
 		}
 	},
