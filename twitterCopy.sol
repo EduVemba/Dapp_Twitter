@@ -79,4 +79,14 @@ contract Twitter{
         emit TweetUnlike(msg.sender, author, UserTwetts[author][_id].likes, block.timestamp);
     }
 
+    function getTotalLikes(address author) external view returns (uint64)  {
+
+        uint64 totalLikes = 0;
+
+        for (uint64 i; i < UserTwetts[author].length; i++){
+            totalLikes += UserTwetts[author][i].likes;
+        }
+        return totalLikes;
+    }
+
 } 

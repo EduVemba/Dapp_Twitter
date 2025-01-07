@@ -1,0 +1,278 @@
+{
+  "name": "Twitter",
+  "address": "0x7407922381415b94d710fa71c5385225a8ebeb45",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "liker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "author",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint64",
+          "name": "likeCount",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "TweetLiked",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "unliker",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "author",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint64",
+          "name": "likeCount",
+          "type": "uint64"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "TweetUnlike",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "notify",
+          "type": "string"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "tweetHost",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "string",
+          "name": "content",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "timestamp",
+          "type": "uint256"
+        }
+      ],
+      "name": "newTweet",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint32",
+          "name": "newMaxLength",
+          "type": "uint32"
+        }
+      ],
+      "name": "changeTweetLength",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_tweet",
+          "type": "string"
+        }
+      ],
+      "name": "createTweet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "author",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "dislikeTweet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "author",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_id",
+          "type": "uint256"
+        }
+      ],
+      "name": "likeTweet",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "getAllTwetts",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "ID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "author",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "TimeStamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "likes",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct Twitter.Tweet[]",
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTweet",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "ID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "author",
+              "type": "address"
+            },
+            {
+              "internalType": "string",
+              "name": "content",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "TimeStamp",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint64",
+              "name": "likes",
+              "type": "uint64"
+            }
+          ],
+          "internalType": "struct Twitter.Tweet",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getTweetLength",
+      "outputs": [
+        {
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "filePath": "Twitter-sol/twitterCopy.sol",
+  "pinnedAt": 1736284344733
+}
