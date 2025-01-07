@@ -20,10 +20,11 @@ contract Twitter{
 
     mapping(address => Tweet[]) private UserTwetts;
 
-    event newTweet(string indexed notify, address indexed tweetHost);
+    event newTweet(string indexed notify, address indexed tweetHost,string indexed content, uint256  timestamp);
+    event TweetLiked(address indexed liker,address indexed author, uint64 indexed likeCount, uint256 timestamp);
+    event TweetUnlike(address indexed unliker, address indexed author, uint64 indexed likeCount, uint256 timestamp);
 
     uint32 private MAX_LENGTH = 280;
-
 
 
     modifier OnlyOwner(){
@@ -52,7 +53,7 @@ contract Twitter{
         
         UserTwetts[msg.sender].push(newTwet);
     
-        emit newTweet("New Tweet by: ", msg.sender);
+        emit newTweet("New Tweet by: ", newTwet.author ,newTwet.content ,newTwet.TimeStamp);
     
     }
 
@@ -67,11 +68,15 @@ contract Twitter{
     function likeTweet(address author, uint256 _id) external {
         require(UserTwetts[author][_id].ID == _id,"Tweet does not exist");
         UserTwetts[author][_id].likes++;
+
+        emit TweetLiked(msg.sender, author,UserTwetts[author][_id].likes, block.timestamp);
     }
 
     function dislikeTweet(address author, uint256 _id) external {
         require(UserTwetts[author][_id].ID == _id  && UserTwetts[author][_id].likes > 0,"Not possible");
         UserTwetts[author][_id].likes--;
+
+        emit TweetUnlike(msg.sender, author, UserTwetts[author][_id].likes, block.timestamp);
     }
 
 } 

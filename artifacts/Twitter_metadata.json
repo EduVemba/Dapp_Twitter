@@ -15,6 +15,68 @@
 				"inputs": [
 					{
 						"indexed": true,
+						"internalType": "address",
+						"name": "liker",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "author",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint64",
+						"name": "likeCount",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "TweetLiked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "unliker",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "author",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint64",
+						"name": "likeCount",
+						"type": "uint64"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
+					}
+				],
+				"name": "TweetUnlike",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
 						"internalType": "string",
 						"name": "notify",
 						"type": "string"
@@ -24,6 +86,18 @@
 						"internalType": "address",
 						"name": "tweetHost",
 						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "content",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestamp",
+						"type": "uint256"
 					}
 				],
 				"name": "newTweet",
@@ -230,11 +304,11 @@
 	},
 	"sources": {
 		"twitterCopy.sol": {
-			"keccak256": "0xaa7b85e26fb9559f550a4bb14108d7d32ed9033aefc2b255705c3a1552e00ef8",
+			"keccak256": "0xcdef0736ad82b2c8fc1f0765e46e927afe2d53a02bbdd1c6cc0ed35442828227",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b21e685ac05c39a641c6b79418551ab94dc4883eeeb86f452a7dd7eb1eb8d213",
-				"dweb:/ipfs/QmPWiUdVMoLVPp1kM2CY58qrXBmbZzzF8CvALUe98hi8cF"
+				"bzz-raw://9d086f1c36dd782e53f2b474ed3fae04019d7c93b21a3fff84c011df5aac92a1",
+				"dweb:/ipfs/QmSBhxVV37KTLyNaC5TuvypnmyikeSQYfnQRw6zQby3kB2"
 			]
 		}
 	},
