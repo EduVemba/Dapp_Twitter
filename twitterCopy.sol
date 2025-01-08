@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v4.9.0/contracts/access/Ownable.sol";
 
 interface IProfile {
     struct UserProfile {
@@ -12,7 +12,7 @@ interface IProfile {
     function getProfile(address _user) external view  returns (UserProfile memory); 
 }
 
-abstract contract Twitter is Ownable {
+contract Twitter is Ownable {
     address private _owner;
 
     IProfile profileContract;
@@ -22,7 +22,7 @@ abstract contract Twitter is Ownable {
        profileContract = IProfile(_profileContract);
     }
 
-    modifier onlyRegistered() {
+    modifier onlyRegistered()  {
         IProfile.UserProfile memory userProfileTemp = profileContract.getProfile(msg.sender);
         require(bytes(userProfileTemp.displayName).length > 0,"User not Registered");
         _;
