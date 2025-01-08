@@ -430,11 +430,11 @@
 			]
 		},
 		"twitterCopy.sol": {
-			"keccak256": "0xb9e302ad36248b2319b99ff78729b621375353fedfa4b6ae54d113b60f0cd779",
+			"keccak256": "0x0e78dfa979c92a6f10e9e36dfa6bb34ea832cae706483e4248b395a9a532dc61",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://78008909050d634a1a860a4811301c19e29bc4c98308e8ef71462bb073c38624",
-				"dweb:/ipfs/QmY3WSMjMVTyR3U69tMByRYjLhbSsTQbTbdX5QcogdDLE8"
+				"bzz-raw://51151601c4a8155dde8d6390b5a075cd4c286b467adcae8b23e132cc8185a74d",
+				"dweb:/ipfs/QmW4ZYxDLUpcg8ZF93kr5QVoRYaYn3Am5Fj8iSjk4DWHA7"
 			]
 		}
 	},

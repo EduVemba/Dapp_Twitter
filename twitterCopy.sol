@@ -3,11 +3,29 @@ pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
 
+interface IProfile {
+    struct UserProfile {
+        string displayName;
+        string bio;
+    }
+
+    function getProfile(address _user) external view  returns (UserProfile memory); 
+}
+
 abstract contract Twitter is Ownable {
     address private _owner;
 
-    constructor() {
-        _owner = msg.sender;
+    IProfile profileContract;
+
+    constructor(address _profileContract) {
+
+       profileContract = IProfile(_profileContract);
+    }
+
+    modifier onlyRegistered() {
+        IProfile.UserProfile memory userProfileTemp = profileContract.getProfile(msg.sender);
+        require(bytes(userProfileTemp.displayName).length > 0,"User not Registered");
+        _;
     }
 
     struct Tweet {
@@ -49,7 +67,7 @@ abstract contract Twitter is Ownable {
         return MAX_LENGTH;
     }
 
-    function createTweet(string memory _tweet) external {
+    function createTweet(string memory _tweet) external onlyRegistered {
         require(
             bytes(_tweet).length <= MAX_LENGTH,
             "You used the maximum number of characters possible"
@@ -89,7 +107,7 @@ abstract contract Twitter is Ownable {
         return UserTwetts[_ownerT];
     }
 
-    function likeTweet(address author, uint256 _id) external {
+    function likeTweet(address author, uint256 _id) external onlyRegistered {
         require(UserTwetts[author][_id].ID == _id, "Tweet does not exist");
         UserTwetts[author][_id].likes++;
 
@@ -101,7 +119,7 @@ abstract contract Twitter is Ownable {
         );
     }
 
-    function dislikeTweet(address author, uint256 _id) external {
+    function dislikeTweet(address author, uint256 _id) external onlyRegistered {
         require(
             UserTwetts[author][_id].ID == _id &&
                 UserTwetts[author][_id].likes > 0,
